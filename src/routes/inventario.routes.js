@@ -1,18 +1,24 @@
+// getInventario.routes.js
+
 import { Router } from "express";
-import { createNewProduct, getInventario } from "../controllers/inventario.controller";
+import { createNewProduct, getInventario, getEmpresas} from "../controllers/inventario.controller";
 
-const router = Router();
+let router = Router();
 
+// rutas inventario habitual
 
-router.get("/inventario", getInventario);
+router.get("/inventario", getInventario, getEmpresas);
 
 router.post("/inventario", createNewProduct );
 
-router.get("/inventario",)
-
 router.delete("/inventario",)
 
-router.put("/inventario",)
+router.put("/inventario", )
+
+
+// rutas empresas
+
+router.get("/Empresa_Suministradora", getEmpresas);
 
 
 

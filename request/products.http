@@ -1,0 +1,30 @@
+@api = http://localhost:3000/inventario
+@getEmpreas = http://localhost:3000/Empresa_Suministradora
+
+GET {{api}}
+###
+POST {{api}}
+Content-Type: "application/json"
+
+{
+    "Pk_Id_Producto":11,
+    "Nombre_Producto": "monitor",
+    "Referencia":"multiformat",
+    "Marca": "tvlogic",
+    "Numero_de_Orden":1059,
+    "Fecha_de_Compra":"09/05/2024",
+    "cantidad":23123,
+}
+
+###
+DELETE {{api}}
+###
+PUT {{api}}
+
+
+#empresas 
+###
+
+
+GET {{getEmpreas}}
+###
