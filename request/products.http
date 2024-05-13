@@ -1,5 +1,10 @@
-@api = http://localhost:3000/inventario
-@getEmpreas = http://localhost:3000/Empresa_Suministradora
+### extensión que simula peticiones de front
+@api = http://localhost:3000/inventario/
+@getEmpreas = http://localhost:3000/Empresa_Suministradora/
+
+### visitas tecnicas
+@getVisitas = http://localhost:3000/Visita_Tecnica/
+
 
 GET {{api}}
 ###
@@ -17,14 +22,17 @@ Content-Type: "application/json"
 }
 
 ###
-DELETE {{api}}
+GET {{api}}/1
+###
+DELETE {{api}}/1
 ###
 PUT {{api}}
 
 
-#empresas 
+### Empresas
+GET {{getEmpreas}}
 ###
 
-
-GET {{getEmpreas}}
+### visitas
+GET {{{{getVisitas}}}}
 ###
