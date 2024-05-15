@@ -1,4 +1,4 @@
-// indentario.controller.js
+// inventario.controller.js
 import sql from "mssql";
 import { getConection } from "../database/conection";
 import { queries } from "../database/queries";
@@ -21,13 +21,12 @@ export const getInventario = async (req, res) => {
 
 export const createNewProduct = async (req, res) => {
   const {
-    Pk_Id_Producto,
     Nombre_Producto,
     Referencia,
     Marca,
     Numero_de_Orden,
     Fecha_de_Compra,
-    Fk_NIT_Empresa_Suministradora,
+    Fk_Nombre_Empresa_Suministradora,
   } = req.body;
   let { Cantidad } = req.body;
 
@@ -39,14 +38,16 @@ export const createNewProduct = async (req, res) => {
     const pool = await getConection();
     const result = await pool
       .request()
-      .input("Pk_Id_Producto", Pk_Id_Producto)
       .input("Nombre_Producto", Nombre_Producto)
       .input("Referencia", Referencia)
       .input("Marca", Marca)
       .input("Numero_de_Orden", Numero_de_Orden)
       .input("Fecha_de_Compra", Fecha_de_Compra)
       .input("Cantidad", Cantidad)
-      .input("Fk_NIT_Empresa_Suministradora", Fk_NIT_Empresa_Suministradora)
+      .input(
+        "Fk_Nombre_Empresa_Suministradora",
+        Fk_Nombre_Empresa_Suministradora
+      )
 
       .query(queries.insertInventario);
     res.json({ success: true, insertedId: result.recordset });
@@ -65,8 +66,8 @@ export const getProductById = async (req, res) => {
     .request()
     .input("Pk_Id_Producto", Pk_Id_Producto)
     .query(queries.getProductById);
-  res.json(result.recordset)
-  console.log(result.recordset)
+  res.json(result.recordset);
+  console.log(result.recordset);
 };
 
 // eliminar ----------------------
@@ -78,10 +79,9 @@ export const deleteProductById = async (req, res) => {
     .request()
     .input("Pk_Id_Producto", Pk_Id_Producto)
     .query(queries.deleteById);
-  res.json("Se eliminó el producto", result.recordset)
-  console.log(result.recordset)
+  res.json({ message: "Producto eliminado exitosamente" });
+  console.log(result.recordset);
 };
-
 
 // editar productos
 
@@ -89,8 +89,6 @@ export const editProduct = (req, res) => {
   try {
   } catch (error) {}
 };
-
-
 
 // empresas--------------------------------
 
@@ -108,13 +106,10 @@ export const getEmpresas = async (req, res) => {
   }
 };
 
-
 export const getVisitas = async (req, res) => {
   try {
     const pool = await getConection();
-    const result = await pool
-      .request()
-      .query(queries.getAllVisitas);
+    const result = await pool.request().query(queries.getAllVisitas);
     console.log(result);
     res.json(result.recordset);
   } catch (error) {

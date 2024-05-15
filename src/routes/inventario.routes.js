@@ -17,6 +17,7 @@ router.post("/inventario", createNewProduct );
 
 router.delete("/inventario/:Pk_Id_Producto", deleteProductById)
 
+
 router.put("/inventario", )
 
 
