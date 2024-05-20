@@ -17,7 +17,7 @@ const dbSettings = {
 
 export async function  getConection() {
   try {
-    const pool = await sql.connect(dbSettings);
+    const pool = sql.connect(dbSettings);
     return pool;
   } catch (error) {
     console.error("hubo un error al conectar la base de datos ", error);

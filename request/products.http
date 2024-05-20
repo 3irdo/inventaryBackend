@@ -5,8 +5,31 @@
 ### visitas tecnicas
 @getVisitas = http://localhost:3000/Visita_Tecnica/
 
+@getusuarios = http://localhost:3000/Usuario_Tecnico/
 
-GET {{api}}
+
+@login = http://localhost:3000/auth/login
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "Fk_CC_Usuario": 1031577939,
+    "Contraseña": "12345"
+}
+### registro
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "Fk_CC_Usuario": 789123452,
+    "Fk_Id_Rol": 3,
+    "Contraseña": "12365"
+}
+
+
+###
+GET {{api}}1
 ###
 POST {{api}}
 Content-Type: "application/json"
@@ -23,15 +46,68 @@ Content-Type: "application/json"
 ###
 GET {{api}}
 ###
-DELETE {{api}}:1
+DELETE {{api}}
 ###
-PUT {{api}}
+PUT {{api}}26
+Content-Type: "application/json"
 
+{
+    "Nombre_Producto": "update",
+    "Referencia":"apdate",
+    "Marca": "tvlogic",
+    "Numero_de_Orden":1059,
+    "Fecha_de_Compra":"09/05/2024",
+    "cantidad":26,
+}
 
+###visitas
+
+GET {{getVisitas}}1
+
+###
+POST {{getVisitas}}
+
+Content-Type:  application/json
+ {
+    "Pk_Id_Visita_Tecnica": 6,
+    "Fecha_Visita_Tecnica": "10/10/1994",
+    "Tipo_Visita": "mantenimiento",
+    "Descripcion_Visita_Tecnica": "loremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsu loremipsuloremipsuloremipsu",
+    "Fk_CC_Usuario": 123456789,
+    "Fk_Id_Producto": 2,
+    "Fk_Numero_Cuenta_Cliente": 1003
+  }
+###delete visita
+
+DELETE {{getVisitas}}
 ### Empresas
 GET {{getEmpreas}}
 ###
 
 ### visitas
-GET {{{{getVisitas}}}}
+GET {{getVisitas}}1
 ###
+
+
+GET  {{getusuarios}} 
+
+###Delete usuario
+DELETE  {{getusuarios}}1152451911
+###
+
+@hVista = http://localhost:3000/historialVisitasTecnicas/
+###
+GET {{hVista}}1
+###
+
+POST {{hVista}} 
+Content-Type: application/json
+
+{
+    "Fecha_Visita_Tecnica": "10/10/1994",
+    "Tipo_Visita": "mantenimiento",
+    "Descripcion_Visita_Tecnica": "loremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsuloremipsu loremipsuloremipsuloremipsu",
+    "Fk_CC_Usuario": 123456789,
+    "Fk_Id_Producto": 2,
+    "Fk_Numero_Cuenta_Cliente": 1003
+}
