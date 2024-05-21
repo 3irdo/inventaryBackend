@@ -39,7 +39,7 @@ router.put("/inventario/:Pk_Id_Producto", updateProductById);
 // rutas visitas tecnicas ----------
 router.get("/Visita_Tecnica", getVisitas);
 
-router.get("/Visita_Tecnica/:Pk_Id_Visita_Tecnica", getUsuarioTecnicoById);
+router.get("/Visita_Tecnica/:Pk_Id_Visita_Tecnica", getVisitaById);
 
 router.post("/Visita_Tecnica", createNewVisita);
 

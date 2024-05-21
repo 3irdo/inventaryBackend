@@ -26,11 +26,11 @@ export const getUsuarioTecnicoById = async (req, res) => {
     .request()
     .input("Pk_CC_Usuario", Pk_CC_Usuario)
     .query(queries.getUserById);
-    if (result.recordset.length > 0) {
-      res.json(result.recordset[0]);
-    } else {
-      res.status(404).json({ message: "Usuario no encontrado" });
-    }
+  if (result.recordset.length > 0) {
+    res.json(result.recordset[0]);
+  } else {
+    res.status(404).json({ message: "Usuario no encontrado" });
+  }
 };
 
 // nuevo usuario
@@ -87,6 +87,7 @@ export const updateUsuarioTecnicoById = async (req, res) => {
     res.status(500).json({ error: "Error al actualizar la visita" });
   }
 };
+
 
 // borrar usuario
 export const deleteUserById = async (req, res) => {

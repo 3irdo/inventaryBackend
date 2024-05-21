@@ -47,15 +47,17 @@ export const queries = {
   // --------------usuario tecnico ------
   getUsuarioTecnico: "SELECT * FROM Usuario_Tecnico",
 
-  getUserById: "SELECT * FROM Usuario_Tecnico WHERE Pk_CC_Usuario = @Pk_CC_Usuario",
+  getUserById:
+    "SELECT * FROM Usuario_Tecnico WHERE Pk_CC_Usuario = @Pk_CC_Usuario",
 
   insertUsuarioTecnico:
     "INSERT INTO Usuario_Tecnico(Pk_CC_Usuario, Nombre_Usuario, Apellido_Usuario, Telefono_Usuario, Correo_Usuario) VALUES(@documento, @nombre, @apellido, @telefono, @correo)",
 
   delUsuarioTecnicoById:
     "DELETE FROM Usuario_Tecnico WHERE Pk_CC_Usuario = @Pk_CC_Usuario",
+    
   updateTecnicoById:
-    "Update Usuario_Tecnico SET Nombre_Usuario = @Nombre_Usuario, Apellido_Usuario = @Apellido_Usuario, Telefono_Usuario = @Telefono_Usuario, Correo_Usuario= @Correo_Usuario, Pk_CC_Usuario = @Pk_CC_Usuario ",
+    "Update Usuario_Tecnico SET Nombre_Usuario = @Nombre_Usuario, Apellido_Usuario = @Apellido_Usuario, Telefono_Usuario = @Telefono_Usuario, Correo_Usuario= @Correo_Usuario WHERE Pk_CC_Usuario = @Pk_CC_Usuario",
 
   // -------------- visitas tecnicas ok--
   insertVisitaTecnica:
